@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <input type="checkbox" [(ngModel)]="check" [checked]="check"/> Show only names
+  <h3>
+    This is list of persons:
+  </h3>
+  <table *ngIf="!check" class="table table-hover">
+    <thead>
+      <tr>
+        <td>Known as</td>
+        <td>Time on earth</td>
+        <td>Has a spouse?</td>
+      </tr>
+    </thead>
+      <tbody *ngFor="let person of persons">
+        <tr>
+          <td>{{person.name}}</td>
+          <td>{{person.age}} yrs</td>
+          <td>{{person.married?'Yes':'No'}}</td>
+        </tr>
+      </tbody>
+  </table>
+  <table *ngIf="check" class="table table-hover">
+    <thead>
+      <tr>
+        <td>Known as</td>
+      </tr>
+    </thead>
+      <tbody *ngFor="let name of names">
+        <tr>
+          <td>{{name}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
